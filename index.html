@@ -3,80 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Responsive Calculator</title>
     
     <style>
-        body{
+        body {
             background-color: #ef3d4c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
         }
-        .calculator-body{
+        .calculator-body {
             width: 23vw;
-            height: 115vh;
+            max-width: 350px;
+            height: auto;
             border: 2px solid black;
-            margin-left: auto;
-            margin-right: auto;
-           
-            border-radius:20px;
-            padding: 30px;
+            border-radius: 20px;
+            padding: 20px;
             background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .body{
+        .screen {
+            width: 100%;
+            height: 14vh;
+            background-color: rgb(250, 247, 247);
+            border-radius: 5px;
+            text-align: right;
+            font-size: 2.5em;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .body {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
             margin-top: 1vh;
+            justify-content: center;
         }
-        button{
-            margin: 10px;
-            font-size: large;
+        button {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background-color: grey;
+            color: white;
+            font-size: 1.5em;
             border: none;
         }
-       .screen{
-        text-align: center;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        font-size: 60px;
-       }
+        button:nth-child(3n) {
+            background-color: orange;
+        }
+        button:last-child {
+            background-color: rgb(246, 100, 10);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .calculator-body {
+                width: 95%;
+                max-width: 300px;
+            }
+            .body {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            button {
+                width: 65px;
+                height: 65px;
+                font-size: 1.2em;
+            }
+        }
+        @media (max-width: 480px) {
+            .calculator-body {
+                width: 95%;
+                max-width: 250px;
+            }
+            .screen {
+                font-size: 1.8em;
+                height: 12vh;
+            }
+            .body {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            button {
+                width: 55px;
+                height: 55px;
+                font-size: 1em;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="calculator-body">
-        <div class="screen" style="width: 100%;height: 14vh;background-color: rgb(250, 247, 247);border-radius: 5px;"></div>
+        <div class="screen"></div>
         <div class="body">
-            <button style="width: 75px;
-            height: 75px;border-radius: 50%;background-color: grey;color: white;">1</button>
-            <button  style="width: 75px;
-            height: 75px;border-radius: 50%;background-color: grey;color: white;">2</button>
-            <button  style="width: 75px;
-            height: 75px;border-radius: 50%;background-color: orange;color: white;">%</button>
-            <button style="width: 75px;
-            height: 75px;border-radius: 50%;background-color: grey;color: white;">3</button>
-            <button  style="width: 75px;
-            height: 75px;border-radius: 50%;background-color: grey;color: white;">4</button>
-            <button style="width: 75px;
-            height: 75px;border-radius: 50%;background-color: orange;color: white;">/</button>
-            <button  style="width: 75px;
-            height: 75px;border-radius: 50%;background-color: grey;color: white;">5</button>
-            <button  style="width: 75px;
-            height: 75px;border-radius: 50%;background-color: grey;color: white;">6</button>
-            <button  style="width: 75px;
-            height: 75px;border-radius: 50%; background-color: orange;color: white;">x</button>
-            <button style="width: 75px;
-            height: 75px;border-radius: 50%;background-color: grey;color: white;">7</button>
-            <button  style="width: 75px;
-            height: 75px;border-radius: 50%;background-color: grey;color: white;">8</button>
-            <button  style="width: 75px;
-            height: 75px;border-radius: 50%;background-color: orange;color: white;">-</button>
-            <button  style="width: 75px;
-            height: 75px;border-radius: 50%;background-color: grey;color: white;">9</button>
-            <button  style="width: 75px;
-            height: 75px;border-radius: 50%;background-color: grey;color: white;">0</button>
-            <button  style="width: 75px;
-            height: 75px;border-radius: 50%;background-color: orange;color: white;">+</button>
-            <button  style="width: 75px;
-            height: 75px;border-radius: 50%;background-color: grey;color: white;font-size: x-large;">.</button>
-            <button  style="width: 75px;
-            height: 75px;border-radius: 50%;background-color: rgb(246, 100, 10);color: white;">CLR</button>
-            <button  style="width: 75px;
-            height: 75px;border-radius: 50%;background-color: orange;color: white;">=</button>
+            <button>1</button>
+            <button>2</button>
+            <button>%</button>
+            <button>3</button>
+            <button>4</button>
+            <button>/</button>
+            <button>5</button>
+            <button>6</button>
+            <button>x</button>
+            <button>7</button>
+            <button>8</button>
+            <button>-</button>
+            <button>9</button>
+            <button>0</button>
+            <button>+</button>
+            <button>.</button>
+            <button>CLR</button>
+            <button>=</button>
         </div>
     </div>
     <script src="index.js"></script>
